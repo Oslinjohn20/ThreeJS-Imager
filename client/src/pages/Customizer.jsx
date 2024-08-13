@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSnapshot } from "valtio";
 
 import state from "../store";
-import config from "../config/config";
-import { download } from "../assets";
-import { downloadCanvasToImage, reader } from "../config/helpers";
+import { reader } from "../config/helpers";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
 import {
@@ -60,7 +59,7 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
+      const response = await fetch("https://threejs-imager.onrender.com/api/v1/dalle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
